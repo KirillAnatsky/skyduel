@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sky Duel: Biplane Battle</title><meta name="description" content="Sky Duel: Biplane Battle — legendary biplane dogfights for iPhone. Online, side by side, record your own battle cry.">
+<link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="assets/style.css"></head>
+<body><div class="wrap">
+<header class="top"><a class="brand" href="./"><img src="assets/icon.png" alt="">Sky Duel</a>
+<div class="lang"><button data-set="ru">RU</button><button data-set="en">EN</button></div></header>
+
+<section class="hero">
+<h1 data-l="ru">ЛЕГЕНДАРНАЯ <em>ДУЭЛЬ</em><br>БИПЛАНОВ</h1>
+<h1 data-l="en">LEGENDARY <em>BIPLANE</em><br>DUEL</h1>
+<p data-l="ru">Та самая игра с кнопочных телефонов — теперь на iPhone</p>
+<p data-l="en">The old-school phone classic — now on iPhone</p>
+</section>
+<canvas id="sky" width="640" height="300"></canvas>
+<div style="text-align:center">
+<a class="cta" href="#"><span data-l="ru">Скоро в App Store</span><span data-l="en">Coming soon to the App Store</span></a>
+<a class="cta alt" href="support.html"><span data-l="ru">Поддержка</span><span data-l="en">Support</span></a></div>
+<div class="grid">
+<div class="feat"><b data-l="ru">🌍 Онлайн</b><b data-l="en">🌍 Online</b><span data-l="ru">Случайный соперник со всего мира или друг по приглашению через Game Center.</span><span data-l="en">Random rivals worldwide or invite a friend via Game Center.</span></div>
+<div class="feat"><b data-l="ru">📱 Вдвоём рядом</b><b data-l="en">📱 Side by side</b><span data-l="ru">Два iPhone, прямое подключение — даже без интернета.</span><span data-l="en">Two iPhones, direct connection — even with no internet.</span></div>
+<div class="feat"><b data-l="ru">🎙 Свой крик</b><b data-l="en">🎙 Your battle cry</b><span data-l="ru">Запиши голос, наложи эффект — соперник услышит его, когда тебя собьют.</span><span data-l="en">Record your voice, add an effect — your rival hears it when you go down.</span></div>
+<div class="feat"><b data-l="ru">🪂 Парашют</b><b data-l="en">🪂 Bail out</b><span data-l="ru">Сбили? Прыгай, открывай парашют и беги к ангару за новым самолётом.</span><span data-l="en">Shot down? Jump, pop the chute and run to your hangar for a new plane.</span></div>
+</div>
+<h2 data-l="ru" style="color:#fff;-webkit-text-stroke:1px #1D2333;text-shadow:0 4px 0 #1D2333">Скриншоты</h2>
+<h2 data-l="en" style="color:#fff;-webkit-text-stroke:1px #1D2333;text-shadow:0 4px 0 #1D2333">Screenshots</h2>
+<div class="shots" data-l="ru"><img src="assets/ru_1.jpg" alt=""><img src="assets/ru_2.jpg" alt=""><img src="assets/ru_4.jpg" alt=""></div>
+<div class="shots" data-l="en"><img src="assets/en_1.jpg" alt=""><img src="assets/en_2.jpg" alt=""><img src="assets/en_4.jpg" alt=""></div>
+
+<footer><a href="./">Sky Duel</a> · <a href="privacy.html"><span data-l="ru">Конфиденциальность</span><span data-l="en">Privacy</span></a> · <a href="terms.html"><span data-l="ru">Условия</span><span data-l="en">Terms</span></a> · <a href="support.html"><span data-l="ru">Поддержка</span><span data-l="en">Support</span></a>
+<div class="muted">© 2026 Sky Duel · kirylanatski@icloud.com</div></footer></div><div class="ground"></div>
+<script src="assets/site.js"></script><script src="assets/pixel.js"></script><script>
+(function(){var c=document.getElementById("sky"),x=c.getContext("2d");x.imageSmoothingEnabled=false;var t=0;
+function f(){t+=1/60;var W=640,H=300;PX.scene(x,W,H,{scale:1});
+PX.cloud(x,0,(40+t*6)%720-60,60,4);PX.cloud(x,2,(380+t*4)%720-60,30,4);
+function pos(o){var X=(t*70+o)%820-90,Y=150+Math.sin((t*70+o)/90)*55,dy=Math.cos((t*70+o)/90)*55/90;return [X,Y,Math.atan2(-dy,1)];}
+var B=pos(150),R=pos(40);
+PX.plane(x,1,B[0],B[1],2.6,B[2]);PX.plane(x,0,R[0],R[1],2.6,R[2],2);
+if(Math.floor(t*6)%2){x.fillStyle="#1D2333";for(var i=1;i<4;i++)x.fillRect(R[0]+Math.cos(R[2])*24*i,R[1]-Math.sin(R[2])*24*i,4,4);}
+PX.pilot(x,1,560,90+((t*14)%170),2.2,true);
+requestAnimationFrame(f);}f();})();</script></body></html>
